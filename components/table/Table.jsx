@@ -513,12 +513,20 @@ export default {
     },
 
     handleFilter(column, nextFilters) {
+      if (column.onFilteredValueChange) {
+        column.onFilteredValueChange([...nextFilters]);
+      }
+      if (!column.filteredValue) {
+        const filters = {
+          ...this.sFilters,
+          [getColumnKey(column)]: nextFilters,
+        };
+        this.applyFilters(filters);
+      }
+    },
+    applyFilters(filters) {
       const props = this.$props;
       const pagination = { ...this.sPagination };
-      const filters = {
-        ...this.sFilters,
-        [getColumnKey(column)]: nextFilters,
-      };
       // Remove filters not in current columns
       const currentColumnKeys = [];
       treeMap(this.columns, c => {

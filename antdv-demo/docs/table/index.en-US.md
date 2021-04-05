@@ -86,8 +86,8 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | defaultSortOrder | Default order of sorted values: `'ascend'` `'descend'` `null` | string | - |  |
 | filterDropdown | Customized filter overlay | slot \| slot-scope | - |  |
 | filterDropdownVisible | Whether `filterDropdown` is visible. Can be used with `.sync` in template, see `update:filterDropdownVisible` | boolean | - |  |
-| filtered | Whether the `dataSource` is filtered | boolean | `false` |  |
-| filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
+| filtered | Whether the `dataSource` is filtered, filter icon will highlight | boolean | `false` |  |
+| filteredValue | Controlled filtered value. Can be used with `.sync` in template, see `update:filteredValue` | string\[] | - |  |
 | filterIcon | Customized filter icon | slot \| slot-scope \| (filtered: boolean, column: Column) | `false` |  |
 | filterMultiple | Whether multiple filters can be selected | boolean | `true` |  |
 | filters | Filter menu config | object\[] | - |  |
@@ -103,6 +103,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | customHeaderCell | Set props on per header cell | Function(column) | - |  |
 | onFilter | Callback executed when the confirm filter button is clicked, Use as a `filter` event when using template or jsx | Function | - |  |
 | onFilterDropdownVisibleChange <br> @filterDropdownVisibleChange <br> @update:filterDropdownVisible | Callback executed when `filterDropdownVisible` is changed, Use as a `filterDropdownVisibleChange` or `update:filterDropdownVisible` event when using template or jsx | function(visible) {} | - |  |
+| onFilteredValueChange <br> @filteredValueChange <br> @update:filteredValue | Callback executed when `filteredValue` is changed, Use as a `filteredValueChange` or `update:filteredValue` event when using template or jsx | function(filteredValue) {} | - |  |
 | slots | When using columns, you can use this property to configure the properties that support the slot, such as `slots: { filterIcon: 'XXX'}` | object | - |  |
 | scopedSlots | When using columns, you can use this property to configure the properties that support the slot-scope, such as `scopedSlots: { customRender: 'XXX'}` | object | - |  |
 

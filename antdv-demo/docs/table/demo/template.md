@@ -1,7 +1,7 @@
 <cn>
 #### template 风格的 API
 使用 template 风格的 API
-“Last Name” 列展示了列筛选在 template 风格 API 中的通常用法。
+“Last Name” 列展示了列筛选在 template 风格 API 中的通常用法，以及“双向绑定”的 filteredValue 属性，其内部使用了事件 update:filteredValue。
 “Tags” 列展示了自定义列筛选以及“双向绑定”的 filterDropdownVisible 属性，其内部使用了事件 update:filterDropdownVisible。
 > 这个只是一个描述 `columns` 的语法糖，所以你不能用其他组件去包裹 `Column` 和 `ColumnGroup`。
 </cn>
@@ -9,7 +9,7 @@
 <us>
 #### template style API
 Using template style API
-The "Last Name" column shows the normal usage of column filter using template style API.
+The "Last Name" column shows the normal usage of column filter using template style API, and also the "two-way binding" of prop filteredValue, which use event update:filteredValue.
 The "Tags" column shows a customized column search, and also the "two-way binding" of prop filterDropdownVisible, which use event update:filterDropdownVisible.
 > Since this is just a syntax sugar for the prop `columns`, so that you can't compose `Column` and `ColumnGroup` with other Components.
 </us>
@@ -32,6 +32,7 @@ The "Tags" column shows a customized column search, and also the "two-way bindin
           { text: 'Black', value: 'Black' },
         ]"
         :default-filtered-value="['Brown', 'Green']"
+        :filtered-value.sync="lastNameFilteredValue"
         @filter="(value, record) => record.lastName == value"
       />
     </a-table-column-group>
@@ -106,6 +107,7 @@ export default {
   data() {
     return {
       data,
+      lastNameFilteredValue: ['Brown', 'Green'],
       filteredTags: [],
       tagsFilterDropdownVisible: false,
     };

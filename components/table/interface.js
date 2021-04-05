@@ -27,6 +27,7 @@ export const ColumnProps = {
   filterDropdown: PropTypes.any,
   filterDropdownVisible: PropTypes.bool,
   // onFilterDropdownVisibleChange?: (visible: boolean) => void;
+  // onFilteredValueChange?: (filteredValue: string[]) => void;
   sorter: PropTypes.oneOfType([PropTypes.boolean, PropTypes.func]),
   defaultSortOrder: PropTypes.oneOf(['ascend', 'descend']),
   colSpan: PropTypes.number,
